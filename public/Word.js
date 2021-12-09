@@ -1,4 +1,8 @@
 const BuildWord = fragment => (item, index) => {
+
+  if (!item)
+    return
+
   const e_div = document.createElement("div")
   const e_num = document.createElement("i")
   const e_word = document.createElement("b")
