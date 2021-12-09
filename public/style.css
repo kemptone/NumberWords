@@ -1,20 +1,24 @@
 #words {
-  font-size:26px;
+  font-size:22px;
 }
 
 #words > div {
   white-space: nowrap;
   padding:10px 5px;
   float:left;
-  width:18em;
+  width:50%;
+  position: relative;
+  box-sizing: border-box;
 }
 
 #words > div > i {
   font-style: normal;
-  padding-right:10px;
-  font-size:20px;
+  padding-right: 17px;
+  font-size: 17px;
 }
 
 #words > div > b {
   font-style: normal;
 }
+
+#words > div > em {font-style: normal;font-size: 15px;right: 100px;position: absolute;top: 16px; opacity: .4;}

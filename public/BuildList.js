@@ -2,11 +2,11 @@ import { Build } from './Word.js'
 
 export default (Page, Limit) => () => {
 
-  const { buckets, buckets_arr } = Page
+  const { buckets_arr } = Page
   const Final = [ ]
-  const primes = [ ...Page.primes ]
+  // const primes = [ ...Page.primes ]
 
-  let special_words = []
+  // let special_words = []
   let x = 1
 
   while (x <= Limit) {
@@ -21,10 +21,15 @@ export default (Page, Limit) => () => {
       }
     }
 
-    if (index)
-      Final.push( buckets_arr[ index ].shift() )
-    else
-      Final.push({ word : "FARD" })
+    // if (index)
+    Final.push(
+      {
+        ...buckets_arr[ index ].shift() 
+        , index
+      }
+    )
+    // else
+    //  Final.push({ word : "FARD" })
 
     x++
   }
@@ -44,6 +49,6 @@ export default (Page, Limit) => () => {
   */
 
   // Build( Page.e_words )( Page.words.slice(0, Limit) )
-  Build( Page.e_words )( Final.slice(0, Limit) )
+  Build( Page.e_words, Page.prime_keys )( Final.slice(0, Limit) )
 
 }

@@ -1,4 +1,4 @@
-export default ( Words = [] ) => {
+export default ( Words = [], { special_words } ) => {
 
   const Letters = " abcdefghijklmnopqrstuvwxyz".split("") // space is important for 0
 
@@ -14,6 +14,15 @@ export default ( Words = [] ) => {
     const letter = w.word.substr(0,1)
     buckets[ letter ].push(w)
   })
+
+  special_words.forEach( word => buckets.x.push({ word }))
+  special_words.forEach( word => buckets.x.push({ word }))
+  special_words.forEach( word => buckets.x.push({ word }))
+  special_words.forEach( word => buckets.x.push({ word }))
+  special_words.forEach( word => buckets.q.push({ word }))
+  special_words.forEach( word => buckets.q.push({ word }))
+  special_words.forEach( word => buckets.q.push({ word }))
+  special_words.forEach( word => buckets.q.push({ word }))
 
   return {
     buckets_arr

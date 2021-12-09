@@ -2,7 +2,7 @@ import { Build } from './Word.js'
 import Sort from './Sort.js'
 import BuildList from './BuildList.js'
 
-const Limit = 10000
+const Limit = 2000
 
 const Page = window.Page = {
   words : []
@@ -11,6 +11,7 @@ const Page = window.Page = {
   , e_words : document.querySelector("#words")
   , Limit
   , primes : undefined
+  , prime_keys : {}
 }
 
 const buildList = BuildList(Page, Limit)
@@ -20,6 +21,7 @@ const worker = new Worker("prime.worker.js")
 worker.onmessage = function (message) {
   console.log({ data : message.data })
   Page.primes = message.data
+  Page.primes.forEach( value => Page.prime_keys[ value ] = true)
   if (Page.words_loaded)
     buildList()
 }
@@ -34,9 +36,16 @@ fetch("special_words.txt")
     )
 })
 
-fetch("english_words_short.txt")
+// fetch("english_words_short.txt")
+fetch("SpellingWords.txt")
 .then( response => response.text() )
 .then( text => {
+
+  // duplicating so it has plenty of room
+  let x = 10
+  while (x--)
+    text += text
+
     text.split("\n").forEach(
       line => {
 
@@ -44,12 +53,11 @@ fetch("english_words_short.txt")
 
       Page.words.push({
         word
-        , count
       })
 
     })
 
-    Object.assign(Page, Sort(Page.words))
+    Object.assign(Page, Sort(Page.words, Page))
 
     Page.words_loaded = true
     return Page
