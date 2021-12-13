@@ -1,24 +1,45 @@
 #words {
   font-size:22px;
+  font-family: sans-serif;
+  font-weight: 100;
 }
 
 #words > div {
   white-space: nowrap;
-  padding:10px 5px;
+  padding: 6px 5px 6px;
   float:left;
   width:50%;
   position: relative;
   box-sizing: border-box;
+  display: flex;
+  align-items: baseline;
 }
 
 #words > div > i {
   font-style: normal;
   padding-right: 17px;
-  font-size: 17px;
+  font-size: 25px;
+  flex: 0;
+  min-width: 63px;
+  display: block;
+  text-align: right;
 }
 
 #words > div > b {
   font-style: normal;
+  font-weight: normal;
+  font-size: 34px;
+  flex: 1;
 }
 
-#words > div > em {font-style: normal;font-size: 15px;right: 100px;position: absolute;top: 16px; opacity: .4;}
+#words > div > em {
+  font-style: normal;
+  font-size: 16px;
+  font-family: 'Nothing You Could Do', cursive;
+  text-align: right;
+  flex: 0;
+}
+
+#words > div:nth-child(odd) > em {
+  padding-right: 70px;
+}

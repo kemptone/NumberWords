@@ -49,6 +49,6 @@ export default (Page, Limit) => () => {
   */
 
   // Build( Page.e_words )( Page.words.slice(0, Limit) )
-  Build( Page.e_words, Page.prime_keys )( Final.slice(0, Limit) )
+  Build( Page )( Final.slice(0, Limit) )
 
 }

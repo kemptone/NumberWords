@@ -14,11 +14,13 @@ export default ( Words = [], { special_words } ) => {
     const letter = w.word.substr(0,1)
     buckets[ letter ].push(w)
   })
+  
 
-  special_words.forEach( word => buckets.x.push({ word }))
-  special_words.forEach( word => buckets.x.push({ word }))
-  special_words.forEach( word => buckets.x.push({ word }))
-  special_words.forEach( word => buckets.x.push({ word }))
+  // Special case for X and Q since these words are not common
+  special_words.forEach( word => buckets.x.unshift({ word }))
+  special_words.forEach( word => buckets.x.unshift({ word }))
+  special_words.forEach( word => buckets.x.unshift({ word }))
+  special_words.forEach( word => buckets.x.unshift({ word }))
   special_words.forEach( word => buckets.q.push({ word }))
   special_words.forEach( word => buckets.q.push({ word }))
   special_words.forEach( word => buckets.q.push({ word }))
